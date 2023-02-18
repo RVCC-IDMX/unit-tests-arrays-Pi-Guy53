@@ -9,6 +9,8 @@
  *
  */
 
+// const { it } = require('vitest');
+
 /**
  * Returns the sum the absolute values of the numbers in the array
  * @param {array} nums - the array of numbers
@@ -17,7 +19,11 @@
  * ? hint: use Math.abs() to get the absolute value of a number
  */
 function getAbsoluteSum(nums) {
-  // write your code here & return value
+  let result = 0;
+  for (let i = 0; i < nums.length; i += 1) {
+    result += Math.abs(nums[i]);
+  }
+  return result;
 }
 
 /**
@@ -28,7 +34,7 @@ function getAbsoluteSum(nums) {
  * ? hint: use the filter() array method - https://youtu.be/JY5HUDMudew
  */
 function removeStrings(arr) {
-  // write your code here & return value
+  return arr.filter((item) => typeof (item) === 'number');
 }
 
 /**
@@ -50,7 +56,7 @@ function removeStrings(arr) {
  * ? hint 2: use the spread operator with Math.min() and Math.max()
  */
 function findMinMax(arr) {
-  // write your code here & return value
+  return [Math.min(...arr), Math.max(...arr)];
 }
 
 /**
@@ -74,7 +80,14 @@ function findMinMax(arr) {
  * ? https://bit.ly/39ASLc0
  */
 function getTelNo(numbers) {
-  // write your code here & return value
+  let [...a] = numbers;
+  const front = a.splice(0, 3);
+  [...a] = numbers;
+  const mid = a.splice(3, 3);
+  [...a] = numbers;
+  const end = a.splice(6, 4);
+
+  return `(${front.join('')}) ${mid.join('')}-${end.join('')}`;
 }
 
 module.exports = {
